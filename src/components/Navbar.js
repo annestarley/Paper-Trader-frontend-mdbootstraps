@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
-import ModalPage from './Modal'
+import LoginModal from './LoginModal'
+import SignUpModal from './SignUpModal'
 
 class NavbarFeatures extends React.Component {
     constructor(props) {
@@ -31,11 +32,30 @@ class NavbarFeatures extends React.Component {
         return (
             <Router>
                 <Navbar color="stylish-color" dark expand="md" scrolling>
-                    <NavbarBrand href="/">
-                        <strong>Paper <span className="trader">Trader</span></strong>
-                    </NavbarBrand>
-                    { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
-                    <ModalPage />
+
+                      <NavbarBrand href="/">
+                          <strong>Paper <span className="trader">Trader</span></strong>
+                      </NavbarBrand>
+
+                      { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
+                    <Collapse isOpen = { this.state.collapse } navbar>
+                        <NavbarNav className="ml-auto">
+
+
+                            <form className="form-inline">
+                              <NavItem>
+                                <p><span><LoginModal /></span> or <span><SignUpModal /></span></p>
+                              </NavItem>
+                            </form>
+                        </NavbarNav>
+                    </Collapse>
+
+                      {/* <NavbarNav className="ml-auto">
+                        <NavItem>
+                          <p><span><LoginModal /></span> or <span><SignUpModal /></span></p>
+                        </NavItem>
+                      </NavbarNav> */}
+
                 </Navbar>
             </Router>
         );
