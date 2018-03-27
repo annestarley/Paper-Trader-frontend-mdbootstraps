@@ -53,11 +53,11 @@ class NavbarFeatures extends React.Component {
           <NavbarNav className="ml-auto">
             <form className="form-inline">
               <NavItem>
-                <p>
+                <div>
                   <span id="navbar-login"><LoginModal/></span>
                   <span id="or">or</span>
                   <span id="navbar-login"><SignUpModal/></span>
-                </p>
+                </div>
               </NavItem>
             </form>
           </NavbarNav>

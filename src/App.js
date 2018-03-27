@@ -9,7 +9,25 @@ import Graphs from './components/Graphs'
 import Watching from './components/Watching'
 import Footer from './components/Footer'
 
+import FindSymbol from './components/FindSymbol'
+import axios from 'axios'
+
 class App extends Component {
+  state = {
+    companies: []
+  }
+
+  // componentDidMount() {
+  //   let companyName = 'Hershey'
+  //   axios.get(`https://autoc.finance.yahoo.com/autoc?query=${companyName}&region=1&lang=en`)
+  //     .then(res => {
+  //       const companies = res.data
+  //       console.log(companies)
+  //       this.setState({ companies })
+  //     })
+  // }
+
+
   render() {
     console.log('hiii');
     return (
@@ -39,6 +57,8 @@ class App extends Component {
             <Footer />
           </div>
         </div>
+
+      <FindSymbol />
 
       </div>
     );

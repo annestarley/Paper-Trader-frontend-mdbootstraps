@@ -26,16 +26,6 @@ class SymbolCollapse extends Component {
                 <Input label="Company name" />
               </div>
             </div>
-            <div className="row">
-              <div className="col-md-4">
-                <Input label="Company country" />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-4">
-                <Input label="Company security type" />
-              </div>
-            </div>
           </Collapse>
         </div>
       </div>
