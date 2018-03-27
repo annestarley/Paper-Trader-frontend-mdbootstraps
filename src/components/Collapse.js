@@ -15,6 +15,13 @@ class SymbolCollapse extends Component {
     this.setState({ collapse: !this.state.collapse });
   }
 
+  enterPressed(e) {
+    console.log(e.key)
+    if (e.key === 'Enter') {
+      console.log('Here is where I will render my table')
+    }
+  }
+
   render() {
     return (
       <div>
@@ -23,7 +30,10 @@ class SymbolCollapse extends Component {
           <Collapse isOpen={this.state.collapse}>
             <div className="row">
               <div className="col-md-4">
-                <Input label="Company name" />
+                <Input
+                  label="Company name"
+                  onKeyPress={this.enterPressed}
+                 />
               </div>
             </div>
           </Collapse>

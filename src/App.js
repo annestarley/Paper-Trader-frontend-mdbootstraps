@@ -58,8 +58,8 @@ class App extends Component {
           </div>
         </div>
 
-      <FindSymbol />
-
+        <FindSymbol />
+      
       </div>
     );
   }

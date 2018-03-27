@@ -99,7 +99,18 @@
 }
 
 #find-symbol {
+  /* text-align: left;
+  font-size: .8em;
+  margin: -2px;
+  border-color: white;
+  background:silver; */
   color: white;
+  text-align: left;
+  padding: 20px;
+}
+
+#company-info {
+  margin-bottom: -2px;
 }
 
 @keyframes App-logo-spin {
