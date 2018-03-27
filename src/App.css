@@ -34,6 +34,19 @@
   color: white;
 }
 
+.info-tab {
+  background-color: #4B515D;
+  color: white;
+  text-align: left;
+  padding-left: 10px;
+}
+
+#title {
+  background: #ef6c00;
+  color: white;
+  padding: 5px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

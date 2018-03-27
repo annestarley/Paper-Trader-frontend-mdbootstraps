@@ -1,0 +1,5 @@
+<NavbarNav className="ml-auto">
+  <NavItem>
+    <p><span><LoginModal /></span> or <span><SignUpModal /></span></p>
+  </NavItem>
+</NavbarNav>
