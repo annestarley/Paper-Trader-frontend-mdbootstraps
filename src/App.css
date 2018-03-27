@@ -47,6 +47,22 @@
   padding: 5px;
 }
 
+#navbar-login {
+  display: inline-block
+}
+
+#or {
+  color: silver;
+}
+
+#login-modal {
+  color: #3E4551;
+}
+
+#searchbar {
+  margin: 20px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

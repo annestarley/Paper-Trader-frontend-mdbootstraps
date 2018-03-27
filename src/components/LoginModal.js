@@ -27,8 +27,8 @@ class LoginModal extends React.Component {
           <ModalHeader toggle={this.toggle}></ModalHeader>
           <ModalBody>
 
-            <h2 className="mb-5">Form login</h2>
-            <form>
+            <h2 id="login-modal" className="mb-5">Form login</h2>
+            <form id="login-modal">
                 <p className="h5 text-center mb-4">Sign in</p>
                 <Input label="Your name" icon="user" group type="email" validate error="wrong" success="right"/>
                 <Input label="Your email" icon="envelope" group type="email" validate error="wrong" success="right"/>
