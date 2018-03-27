@@ -3,3 +3,8 @@
     <p><span><LoginModal /></span> or <span><SignUpModal /></span></p>
   </NavItem>
 </NavbarNav>
+
+
+{/* <form id="searchbar" className="form-inline">
+  <input className="form-control mr-sm-2" type="text" placeholder="Company symbol" aria-label="Search"/>
+</form> */}

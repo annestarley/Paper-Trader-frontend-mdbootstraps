@@ -30,12 +30,21 @@
   font-size: 2.5em;
 }
 
+#header {
+  color: white;
+  margin: 10px;
+}
+
 #modal-title {
   color: white;
 }
 
+#modal-title:hover {
+  font-size: 1.1em;
+}
+
 .info-tab {
-  background-color: #4B515D;
+  background-color: #4B515D;;
   color: white;
   text-align: left;
   padding-left: 10px;
@@ -53,6 +62,7 @@
 
 #or {
   color: silver;
+  padding: 5px;
 }
 
 #login-modal {
@@ -61,6 +71,31 @@
 
 #searchbar {
   margin: 20px;
+}
+
+#searchbar-container {
+  color: white;
+  text-align: left;
+  /* background: #4B515D; */
+  padding: 10px;
+  margin: 20px;
+}
+
+#button-stock-symbol {
+  background-color: #f57f17;
+}
+
+#footer {
+  margin-top: 100px;
+  color: silver;
+}
+
+#name-link {
+  color: silver;
+}
+
+#name-link:hover {
+  color: white;
 }
 
 @keyframes App-logo-spin {
