@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Collapse, Input } from 'mdbreact';
+import FindSymbol from './FindSymbol'
 
 class SymbolCollapse extends Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class SymbolCollapse extends Component {
 
     this.state = {
       collapse: false,
+      table: false
     };
   }
 
@@ -15,10 +17,22 @@ class SymbolCollapse extends Component {
     this.setState({ collapse: !this.state.collapse });
   }
 
-  enterPressed(e) {
+  enterPressed=(e)=> {
     console.log(e.key)
     if (e.key === 'Enter') {
       console.log('Here is where I will render my table')
+      e.value
+      this.setState({table: true})
+    }
+  }
+
+  renderTable = () => {
+    if(this.state.table)
+    {
+      return (<FindSymbol />)
+    }
+    else{
+      return ''
     }
   }
 
@@ -34,6 +48,7 @@ class SymbolCollapse extends Component {
                   label="Company name"
                   onKeyPress={this.enterPressed}
                  />
+                 {this.renderTable()}
               </div>
             </div>
           </Collapse>
