@@ -50,14 +50,15 @@
   padding-left: 10px;
 }
 
-#title {
+#info-title {
   background: #ef6c00;
   color: white;
   padding: 5px;
+  margin-top: 10%;
 }
 
 #navbar-login {
-  display: inline-block
+  display: inline-block;
 }
 
 #or {
@@ -79,6 +80,7 @@
   /* background: #4B515D; */
   padding: 10px;
   margin: 20px;
+  border: 1px solid silver;
 }
 
 #button-stock-symbol {
@@ -119,7 +121,8 @@
 
 #table-header {
   display: inline-block;
-  background: #d80445;
+  /* background: #d80445; */
+  background: #4B515D;
   padding: 5px;
   font-size: 1.5em;
   width: 110%;
@@ -167,6 +170,22 @@
 
 #stock-info-container button {
   text-align: center
+}
+
+.user-container {
+  border: silver solid 1px;
+  margin: 20px;
+}
+
+.user-container h1 {
+  color: white;
+  margin: 10px;
+}
+
+.header {
+  border: solid silver 1px;
+  margin: 20px;
+  margin-bottom: 10px;
 }
 
 @keyframes App-logo-spin {

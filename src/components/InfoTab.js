@@ -5,7 +5,7 @@ const infoTab = () => {
   return (
     <View zoom>
       <div className="container">
-        <h4 id="title">Username</h4>
+        <h4 id="info-title">Username</h4>
         <div className="info-tab">
           <p>Networth: $networth</p>
           <p>Total Returns: $total returns</p>

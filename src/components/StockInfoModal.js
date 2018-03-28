@@ -38,36 +38,6 @@ class StockInfoModal extends React.Component {
                 <button type="button" class="btn btn-success btn-rounded" id="buy-sell">Sell</button>
               </div>
             </div>
-            {/* <div className="container" id="stock-info-container">
-              <div className="row">
-                <div className="class-md-12">
-                  <p>Current Price: $Price</p>
-                </div>
-              </div>
-              <div className="row">
-                <div className="class-md-12">
-                  <p>Amount Owned: owned</p>
-                </div>
-              </div>
-              <div className="row">
-                <div className="class-md-12">
-                  <p>Ready to trade?</p>
-                </div>
-              </div>
-              <div className="row">
-                <div className="class-md-12">
-                  <Input class="form-control" label="Amount you wish to trade."/>
-                </div>
-              </div>
-              <div className="row">
-                <div className="class-md-6">
-                  <button type="button" class="btn btn-success btn-rounded" id="buy-sell">Buy</button>
-                </div>
-                <div className="class-md-6">
-                  <button type="button" class="btn btn-success btn-rounded" id="buy-sell">Sell</button>
-                </div>
-              </div> */}
-            {/* </div> */}
           </ModalBody>
         </Modal>
       </div>

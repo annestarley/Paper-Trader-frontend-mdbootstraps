@@ -14,7 +14,7 @@ class FindSymbol extends React.Component {
 
   checkForCompanyReturn = (companies) => {
     if (companies.length) {
-      return <p>Top results for your search. Are any of these the company you are looking for?</p>
+      return <p>Top results for your search. Are any of these the company you are looking for? Click on the correct symbol below.</p>
     } else {
       return <p>No companies found with that name.</p>
     }

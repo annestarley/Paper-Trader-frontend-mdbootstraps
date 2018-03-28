@@ -8,6 +8,7 @@ import InfoTab from './components/InfoTab'
 import Graphs from './components/Graphs'
 import Watching from './components/Watching'
 import Footer from './components/Footer'
+import UserStocks from './components/UserStocks'
 
 import axios from 'axios'
 
@@ -35,6 +36,11 @@ class App extends Component {
         </div>
         <div className="row">
           <div className="col-md-12">
+            <UserStocks />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12">
             <Graphs />
           </div>
         </div>
@@ -48,8 +54,6 @@ class App extends Component {
             <Footer />
           </div>
         </div>
-
-        {/* <LineChart /> */}
       </div>
     );
   }
