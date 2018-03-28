@@ -139,8 +139,12 @@
 }
 
 #company-symbol-search {
-  margin-top: -25px;
-  margin-bottom: 35px;
+  /* margin-top: -25px;
+  margin-bottom: 35px; */
+}
+
+#dont-know {
+  margin-top: 40px;
 }
 
 #table-ticker:hover {
@@ -149,6 +153,19 @@
 
 #buy-sell {
   display: inline-block;
+}
+
+#stock-info-container {
+  /* background: #d80445; */
+  margin: 5px;
+}
+
+#stock-info-container p {
+  padding-left: 10px;
+}
+
+#stock-info-container button {
+  text-align: center
 }
 
 @keyframes App-logo-spin {

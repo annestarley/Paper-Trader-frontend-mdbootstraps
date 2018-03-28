@@ -39,7 +39,7 @@ class SymbolCollapse extends Component {
     return (
       <div>
         <div>
-          <Button id="button-stock-symbol" color="primary"  onClick={this.toggle} style={{ marginBottom: "1rem", background: "#f57f17" }}>Look up symbol</Button>
+          <Button id="button-stock-symbol" color="primary" class="btn btn-deep-orange" onClick={this.toggle} style={{ marginBottom: "1rem", background: "#f57f17" }}>Look up symbol</Button>
           <Collapse isOpen={this.state.collapse}>
             <div className="row">
               <div className="col-md-4">
