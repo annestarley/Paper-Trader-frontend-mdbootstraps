@@ -9,6 +9,7 @@
     "mdbreact": "git+https://github.com/mdbootstrap/React-Bootstrap-with-Material-Design.git",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-easy-table": "^1.0.3",
     "react-error-overlay": "4.0.0",
     "react-scripts": "1.1.1"
   },

@@ -17,19 +17,7 @@ class App extends Component {
     companies: []
   }
 
-  // componentDidMount() {
-  //   let companyName = 'Hershey'
-  //   axios.get(`https://autoc.finance.yahoo.com/autoc?query=${companyName}&region=1&lang=en`)
-  //     .then(res => {
-  //       const companies = res.data
-  //       console.log(companies)
-  //       this.setState({ companies })
-  //     })
-  // }
-
-
   render() {
-    console.log('hiii');
     return (
       <div className="App">
         <NavbarFeatures />
@@ -59,7 +47,6 @@ class App extends Component {
         </div>
 
         <FindSymbol />
-      
       </div>
     );
   }
