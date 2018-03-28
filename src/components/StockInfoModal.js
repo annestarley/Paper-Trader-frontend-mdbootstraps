@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'mdbreact';
-
+import {Input} from 'mdbreact'
 
 class StockInfoModal extends React.Component {
   constructor(props) {
@@ -24,14 +24,51 @@ class StockInfoModal extends React.Component {
       <div>
         <Button class="btn btn-success" onClick={this.toggle}>Get Stock Information</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Symbol</ModalHeader>
           <ModalBody>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <p>Current Price: $Price</p>
+            <p>Amount Owned: owned</p>
+            <p>Ready to trade?</p>
+            <Input class="form-control" label="Enter amount you wish to trade."/>
+            <div className="row">
+              <div className="class-md-6">
+                <button type="button" class="btn btn-success btn-rounded" id="buy-sell">Buy</button>
+              </div>
+              <div className="class-md-6">
+                <button type="button" class="btn btn-success btn-rounded" id="buy-sell">Sell</button>
+              </div>
+            </div>
+            {/* <div className="container" id="stock-info-container">
+              <div className="row">
+                <div className="class-md-12">
+                  <p>Current Price: $Price</p>
+                </div>
+              </div>
+              <div className="row">
+                <div className="class-md-12">
+                  <p>Amount Owned: owned</p>
+                </div>
+              </div>
+              <div className="row">
+                <div className="class-md-12">
+                  <p>Ready to trade?</p>
+                </div>
+              </div>
+              <div className="row">
+                <div className="class-md-12">
+                  <Input class="form-control" label="Amount you wish to trade."/>
+                </div>
+              </div>
+              <div className="row">
+                <div className="class-md-6">
+                  <button type="button" class="btn btn-success btn-rounded" id="buy-sell">Buy</button>
+                </div>
+                <div className="class-md-6">
+                  <button type="button" class="btn btn-success btn-rounded" id="buy-sell">Sell</button>
+                </div>
+              </div> */}
+            {/* </div> */}
           </ModalBody>
-          <ModalFooter>
-            <Button color="secondary" onClick={this.toggle}>Close</Button>{' '}
-            <Button color="primary" onClick={this.toggle}>Save changes</Button>
-          </ModalFooter>
         </Modal>
       </div>
     );

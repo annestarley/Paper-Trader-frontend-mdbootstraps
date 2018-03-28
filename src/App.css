@@ -139,12 +139,13 @@
 }
 
 #company-symbol-search {
-  /* margin-top: -25px;
-  margin-bottom: 35px; */
+  margin-top: -25px;
+  margin-bottom: 35px;
 }
 
 #dont-know {
   margin-top: 40px;
+  font-size: .8em;
 }
 
 #table-ticker:hover {

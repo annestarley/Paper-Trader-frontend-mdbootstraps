@@ -38,13 +38,6 @@ class Searchbar extends React.Component {
     }
   }
 
-  // enterPressed=(e)=> {
-  //   if (e.key === 'Enter') {
-  //     e.value
-  //     this.setState({symbol: symbol})
-  //   }
-  // }
-
   render(){
     console.log(this.state.symbol)
 
@@ -57,12 +50,12 @@ class Searchbar extends React.Component {
             <Input class="form-control" label="Company symbol" value={this.state.symbol}/>
           </div>
         </div>
-        {/* <div className="row">
+        <div className="row">
           <div className="col-md-12">
             <StockInfoModal />
           </div>
-        </div> */}
-        <div className="row">
+        </div>
+        {/* <div className="row">
           <div className="col-md-12">
             <button type="button" class="btn btn-success btn-rounded" id="buy-sell" onClick={this.clickStockInfo}>Get Stock Information</button>
           </div>
@@ -71,7 +64,7 @@ class Searchbar extends React.Component {
           <div className="col-md-4">
             {this.renderStockInfo()}
           </div>
-        </div>
+        </div> */}
         <div className = "row">
           <div className = "col-md-8">
             <p id="dont-know">Don't know the company stock/ticker symbol? Click on the button below to find company stock/ticker symbol.</p>
