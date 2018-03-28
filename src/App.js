@@ -11,6 +11,7 @@ import Footer from './components/Footer'
 
 import FindSymbol from './components/FindSymbol'
 import axios from 'axios'
+import Table from './components/Table'
 
 // import 'react-easy-table/sharp-ocean.css'
 
@@ -47,6 +48,8 @@ class App extends Component {
             <Footer />
           </div>
         </div>
+
+        {/* <FindSymbol /> */}
       </div>
     );
   }

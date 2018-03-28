@@ -5,17 +5,17 @@ import EasyTable from 'react-easy-table';
 const Table = (props) => {
   const tHead = [
     {
-        title: 'Company Name',
+        title: <h3 id="table-header">Company Name</h3>,
         assignTo: 'companyName',
         id: 'companyName'
     },
     {
-        title: 'Exchange',
+        title: <h3 id="table-header">Exch</h3>,
         assignTo: 'exchange',
         id: 'exchange'
     },
     {
-        title: 'Ticker/Symbol',
+        title: <h3 id="table-header">Ticker/Symbol</h3>,
         assignTo: 'ticker',
         id: 'ticker'
     }
@@ -29,7 +29,7 @@ const Table = (props) => {
   const findData = (companies) => {
     let results = []
     companies.map((company, i) => {
-      results.push({companyName: company.name, exchange: company.exch, ticker: company.symbol, id: i+1})
+      results.push({companyName: <p id="table-data">{company.name}</p>, exchange: <p id="table-data">{company.exch}</p>, ticker: <p id="table-data">{company.symbol}</p>, id: i+1})
     })
     return results
   }
@@ -37,10 +37,12 @@ const Table = (props) => {
   const data = findData(companies);
 
   return (
-    <EasyTable
-      tHead={tHead}
-      data={data}
-    />
+    <div id="table">
+      <EasyTable
+        tHead={tHead}
+        data={data}
+      />
+    </div>
       );
 };
 

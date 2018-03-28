@@ -48,7 +48,11 @@ class SymbolCollapse extends Component {
                   label="Company name"
                   onKeyPress={this.enterPressed}
                  />
-                 {this.renderTable()}
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-12">
+                {this.renderTable()}
               </div>
             </div>
           </Collapse>
