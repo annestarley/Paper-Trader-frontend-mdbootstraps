@@ -25,7 +25,7 @@ class FindSymbol extends React.Component {
     return (
       <div id="find-symbol">
         {this.checkForCompanyReturn(companies)}
-        <Table />
+        <Table setCompanySymbol={this.props.setCompanySymbol}/>
       </div>
     )
   }

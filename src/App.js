@@ -9,9 +9,9 @@ import Graphs from './components/Graphs'
 import Watching from './components/Watching'
 import Footer from './components/Footer'
 
-import FindSymbol from './components/FindSymbol'
 import axios from 'axios'
-import Table from './components/Table'
+
+import LineChart from './components/charts/LineChart'
 
 // import 'react-easy-table/sharp-ocean.css'
 
@@ -49,7 +49,7 @@ class App extends Component {
           </div>
         </div>
 
-        {/* <FindSymbol /> */}
+        {/* <LineChart /> */}
       </div>
     );
   }

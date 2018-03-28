@@ -18,9 +18,7 @@ class SymbolCollapse extends Component {
   }
 
   enterPressed=(e)=> {
-    console.log(e.key)
     if (e.key === 'Enter') {
-      console.log('Here is where I will render my table')
       e.value
       this.setState({table: true})
     }
@@ -29,12 +27,13 @@ class SymbolCollapse extends Component {
   renderTable = () => {
     if(this.state.table)
     {
-      return (<FindSymbol />)
+      return (<FindSymbol setCompanySymbol={this.props.setCompanySymbol}/>)
     }
     else{
       return ''
     }
   }
+
 
   render() {
     return (

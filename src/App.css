@@ -44,7 +44,7 @@
 }
 
 .info-tab {
-  background-color: #4B515D;;
+  background-color: #4B515D;
   color: white;
   text-align: left;
   padding-left: 10px;
@@ -119,9 +119,13 @@
 
 #table-header {
   display: inline-block;
-  /* background: #f57f17; */
+  background: #d80445;
   padding: 5px;
   font-size: 1.5em;
+  width: 110%;
+  margin-left: -5px;
+  /* border-radius: 10% */
+  padding: 10px;
 }
 
 #table-data {
@@ -129,11 +133,22 @@
   padding-left: 5px;
   margin-bottom: -1px;
   font-size: .8em;
+  border: 1px solid #4B515D;
+  /* border-radius: 25%; */
+  width: 100%;
 }
 
 #company-symbol-search {
   margin-top: -25px;
   margin-bottom: 35px;
+}
+
+#table-ticker:hover {
+  color: silver;
+}
+
+#buy-sell {
+  display: inline-block;
 }
 
 @keyframes App-logo-spin {
