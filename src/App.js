@@ -26,6 +26,7 @@ class App extends Component {
   }
 
   backendURL = "http://localhost:8000"
+  stockAPI = "https://api.iextrading.com/1.0"
 
   signUpUser = (event, username, email, password) => {
     event.preventDefault()
@@ -44,7 +45,15 @@ class App extends Component {
     console.log('clicked')
     console.log(username, password)
 
-    axios.post(`${this.backendURL}/login`, {username, password})
+    // axios.post(`${this.backendURL}/login`, {username, password})
+    axios({
+      method: 'post',
+      data: {username, password},
+      url: `${this.backendURL}/login`,
+      headers: {
+        'Acess-Control-Expose-Headers': 'Auth'
+      }
+    })
       .then(res => {
         console.log(res)
       })

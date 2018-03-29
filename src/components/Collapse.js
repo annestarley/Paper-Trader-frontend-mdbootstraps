@@ -9,7 +9,8 @@ class SymbolCollapse extends Component {
 
     this.state = {
       collapse: false,
-      table: false
+      table: false,
+      company: ''
     };
   }
 
@@ -19,19 +20,30 @@ class SymbolCollapse extends Component {
 
   enterPressed=(e)=> {
     if (e.key === 'Enter') {
-      e.value
-      this.setState({table: true})
+      //this.state.company=e.value;//TODO PASS stuff here?
+      //this.state.table= true;
+      //this.setState(this.state)
+      let company = e.target.value
+      let table = true
+      this.setState({company, table})
     }
   }
 
   renderTable = () => {
     if(this.state.table)
     {
-      return (<FindSymbol setCompanySymbol={this.props.setCompanySymbol}/>)
+      //return (<FindSymbol setCompanySymbol={this.props.setCompanySymbol} setCompanyName={this.getMyCompany}/>)
+      console.log('company in Collapse', this.state.company)
+      return (<FindSymbol setCompanySymbol={this.props.setCompanySymbol} company={this.state.company}/>)
+
     }
     else{
       return ''
     }
+  }
+
+  getMyCompany=()=>{
+    return this.state.company;
   }
 
 

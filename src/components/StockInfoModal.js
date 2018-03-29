@@ -20,11 +20,13 @@ class StockInfoModal extends React.Component {
   }
 
   render() {
+
+    console.log(this.props.symbol)
     return (
       <div>
         <Button class="btn btn-success" onClick={this.toggle}>Get Stock Information</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Symbol</ModalHeader>
+          <ModalHeader toggle={this.toggle}>{this.props.symbol}</ModalHeader>
           <ModalBody>
             <p>Current Price: $Price</p>
             <p>Amount Owned: owned</p>

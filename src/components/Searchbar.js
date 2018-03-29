@@ -1,8 +1,9 @@
 import React from 'react'
 import {Input} from 'mdbreact'
-import SymbolCollapse from './Collapse.js'
+import SymbolCollapse from './Collapse'
 import StockInfo from './StockInfo'
 import StockInfoModal from './StockInfoModal'
+import axios from 'axios'
 
 
 class Searchbar extends React.Component {
@@ -11,6 +12,7 @@ class Searchbar extends React.Component {
 
     this.state = {
       symbol: '',
+      price: '',
       stockInfo: false,
     }
   }
@@ -20,6 +22,25 @@ class Searchbar extends React.Component {
     this.setState({
       symbol: symbol
     })
+  }
+
+  updateSymbol = (e) => {
+    let symbol = e.target.value
+    this.setState ({
+      symbol: symbol
+    })
+    return this.findPrice()
+  }
+
+  findPrice = () => {
+    console.log('in find price');
+    axios.get(`https://api.iextrading.com/1.0//stock/${this.props.symbol}/price`)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 
   clickStockInfo = () => {
@@ -39,7 +60,6 @@ class Searchbar extends React.Component {
   }
 
   render(){
-    console.log(this.state.symbol)
 
     return (
       <div className="container" id="searchbar-container">
@@ -47,12 +67,12 @@ class Searchbar extends React.Component {
         <p>Enter the company stock/ticker symbol.</p>
         <div className="row" id="company-symbol-search">
           <div className="col-md-4">
-            <Input class="form-control" label="Company symbol" value={this.state.symbol}/>
+            <Input class="form-control" label="Company symbol" value={this.state.symbol} onChange={this.updateSymbol}/>
           </div>
         </div>
         <div className="row">
           <div className="col-md-12">
-            <StockInfoModal />
+            <StockInfoModal symbol={this.state.symbol}/>
           </div>
         </div>
         {/* <div className="row">
