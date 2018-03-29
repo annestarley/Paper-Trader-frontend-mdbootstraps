@@ -29,18 +29,6 @@ class Searchbar extends React.Component {
     this.setState ({
       symbol: symbol
     })
-    return this.findPrice()
-  }
-
-  findPrice = () => {
-    console.log('in find price');
-    axios.get(`https://api.iextrading.com/1.0//stock/${this.props.symbol}/price`)
-      .then(res => {
-        console.log(res)
-      })
-      .catch(error => {
-        console.log(error);
-      })
   }
 
   clickStockInfo = () => {

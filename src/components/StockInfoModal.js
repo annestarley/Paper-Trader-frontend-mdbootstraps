@@ -2,21 +2,41 @@
 import React from 'react';
 import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'mdbreact';
 import {Input} from 'mdbreact'
+import axios from 'axios'
 
 class StockInfoModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
+      price: ''
     };
 
     this.toggle = this.toggle.bind(this);
   }
 
+  findPrice = () => {
+    axios.get(`https://api.iextrading.com/1.0//stock/${this.props.symbol}/price`)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
   toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
+    axios.get(`https://api.iextrading.com/1.0//stock/${this.props.symbol}/price`)
+      .then(res => {
+        console.log(res)
+        this.setState({
+          modal: !this.state.modal,
+          price: res.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 
   render() {
@@ -28,7 +48,7 @@ class StockInfoModal extends React.Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>{this.props.symbol}</ModalHeader>
           <ModalBody>
-            <p>Current Price: $Price</p>
+            <p>Current Price: ${this.state.price}</p>
             <p>Amount Owned: owned</p>
             <p>Ready to trade?</p>
             <Input class="form-control" label="Enter amount you wish to trade."/>
