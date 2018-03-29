@@ -56,7 +56,7 @@ class NavbarFeatures extends React.Component {
                 <div>
                   <span id="navbar-login"><LoginModal/></span>
                   <span id="or">or</span>
-                  <span id="navbar-login"><SignUpModal/></span>
+                  <span id="navbar-login"><SignUpModal signUpUser={this.props.signUpUser}/></span>
                 </div>
               </NavItem>
             </form>

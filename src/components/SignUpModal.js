@@ -7,7 +7,10 @@ class SignUpModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
+      username: '',
+      email: '',
+      password: '',
     };
 
     this.toggle = this.toggle.bind(this);
@@ -19,6 +22,27 @@ class SignUpModal extends React.Component {
     });
   }
 
+  updateUsername = (e) => {
+    let username = e.target.value
+    this.setState ({
+      username: username
+    })
+  }
+
+  updateEmail = (e) => {
+    let email = e.target.value
+    this.setState ({
+      email: email
+    })
+  }
+
+  updatePassword = (e) => {
+    let password = e.target.value
+    this.setState ({
+      password: password
+    })
+  }
+
   render() {
     return (
       <div>
@@ -28,13 +52,16 @@ class SignUpModal extends React.Component {
           <ModalBody>
 
             <h2 id="login-modal" className="mb-5">Form register</h2>
-            <form id="login-modal">
+            <form id="login-modal" onSubmit={(event) => {
+              this.props.signUpUser(event, this.state.username, this.state.email, this.state.password)
+              this.toggle()
+            }}>
                 <p className="h5 text-center mb-4">Sign up</p>
-                <Input label="Username" icon="user" group type="email" validate error="wrong" success="right"/>
-                <Input label="Your email" icon="envelope" group type="email" validate error="wrong" success="right"/>
-                <Input label="Your password" icon="lock" group type="password" validate/>
+                <Input label="Username" icon="user" group type="text" validate error="wrong" success="right" required onChange={this.updateUsername}/>
+                <Input label="Your email" icon="envelope" group type="email" validate error="wrong" success="right" required onChange={this.updateEmail}/>
+                <Input label="Your password" icon="lock" group type="password" validate required onChange={this.updatePassword}/>
                 <div className="text-center">
-                    <Button color="deep-orange">Sign up</Button>
+                    <Button type="submit" color="deep-orange">Sign up</Button>
                 </div>
             </form>
 

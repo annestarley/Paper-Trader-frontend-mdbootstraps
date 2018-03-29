@@ -18,13 +18,51 @@ import LineChart from './components/charts/LineChart'
 
 class App extends Component {
   state = {
-    companies: []
+    companies: [],
+    username: '',
+    email: '',
+    password: ''
+
   }
+
+  backendURL = "http://localhost:8000"
+
+  signUpUser = (event, username, email, password) => {
+    event.preventDefault()
+    console.log('clicked')
+    console.log(username, email, password)
+
+    axios.post(`${this.backendURL}/newUser`, { username: username, password: password, email: email })
+      .then(res => {
+        console.log(res)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
+  // updateUsername(username) {
+  //   this.setState ({
+  //     username: username
+  //   })
+  // }
+  //
+  // updateEmail(email) {
+  //   this.setState ({
+  //     email: email
+  //   })
+  // }
+  //
+  // updatePassword(password) {
+  //   this.setState ({
+  //     password: password
+  //   })
+  // }
 
   render() {
     return (
       <div className="App">
-        <NavbarFeatures />
+        <NavbarFeatures signUpUser={this.signUpUser}/>
         <Header />
         <div className="row">
           <div className="col-md-8">
@@ -39,7 +77,7 @@ class App extends Component {
             <UserStocks />
           </div>
         </div>
-        <div className="row">
+        {/* <div className="row">
           <div className="col-md-12">
             <Graphs />
           </div>
@@ -48,7 +86,7 @@ class App extends Component {
           <div className="col-md-12">
             <Watching />
           </div>
-        </div>
+        </div> */}
         <div className="row">
           <div className="col-md-12">
             <Footer />
