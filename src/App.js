@@ -29,8 +29,6 @@ class App extends Component {
 
   signUpUser = (event, username, email, password) => {
     event.preventDefault()
-    console.log('clicked')
-    console.log(username, email, password)
 
     axios.post(`${this.backendURL}/newUser`, { username: username, password: password, email: email })
       .then(res => {
@@ -39,30 +37,27 @@ class App extends Component {
       .catch(error => {
         console.log(error)
       })
+    }
+
+  logInUser = (event, username, password) => {
+    event.preventDefault()
+    console.log('clicked')
+    console.log(username, password)
+
+    axios.post(`${this.backendURL}/login`, {username, password})
+      .then(res => {
+        console.log(res)
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 
-  // updateUsername(username) {
-  //   this.setState ({
-  //     username: username
-  //   })
-  // }
-  //
-  // updateEmail(email) {
-  //   this.setState ({
-  //     email: email
-  //   })
-  // }
-  //
-  // updatePassword(password) {
-  //   this.setState ({
-  //     password: password
-  //   })
-  // }
 
   render() {
     return (
       <div className="App">
-        <NavbarFeatures signUpUser={this.signUpUser}/>
+        <NavbarFeatures signUpUser={this.signUpUser} logInUser={this.logInUser}/>
         <Header />
         <div className="row">
           <div className="col-md-8">
@@ -72,7 +67,7 @@ class App extends Component {
             <InfoTab />
           </div>
         </div>
-        <div className="row">
+        <div className="row justify-content-center">
           <div className="col-md-12">
             <UserStocks />
           </div>

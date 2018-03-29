@@ -7,7 +7,9 @@ class LoginModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
+      username: '',
+      password: '',
     };
 
     this.toggle = this.toggle.bind(this);
@@ -19,6 +21,22 @@ class LoginModal extends React.Component {
     });
   }
 
+  updateUsername = (e) => {
+    let username = e.target.value
+    console.log(username)
+    this.setState ({
+      username: username
+    })
+  }
+
+  updatePassword = (e) => {
+    let password = e.target.value
+    console.log(password)
+    this.setState ({
+      password: password
+    })
+  }
+
   render() {
     return (
       <div>
@@ -28,13 +46,15 @@ class LoginModal extends React.Component {
           <ModalBody>
 
             <h2 id="login-modal" className="mb-5">Form login</h2>
-            <form id="login-modal">
+            <form id="login-modal" onSubmit={(event) => {
+              this.props.logInUser(event, this.state.username, this.state.password)
+              this.toggle()
+            }}>
                 <p className="h5 text-center mb-4">Sign in</p>
-                {/* <Input label="Username" icon="user" group type="email" validate error="wrong" success="right"/> */}
-                <Input label="Your email" icon="envelope" group type="email" validate error="wrong" success="right"/>
-                <Input label="Your password" icon="lock" group type="password" validate/>
+                <Input label="Username" icon="user" group type="text" validate error="wrong" success="right" required onChange={this.updateUsername}/>
+                <Input label="Your password" icon="lock" group type="password" validate required onChange={this.updatePassword}/>
                 <div className="text-center">
-                    <Button color="deep-orange">Login</Button>
+                    <Button type="submit" color="deep-orange">Login</Button>
                 </div>
             </form>
 

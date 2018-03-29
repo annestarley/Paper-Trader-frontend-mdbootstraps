@@ -54,7 +54,7 @@ class NavbarFeatures extends React.Component {
             <form className="form-inline">
               <NavItem>
                 <div>
-                  <span id="navbar-login"><LoginModal/></span>
+                  <span id="navbar-login"><LoginModal logInUser={this.props.logInUser}/></span>
                   <span id="or">or</span>
                   <span id="navbar-login"><SignUpModal signUpUser={this.props.signUpUser}/></span>
                 </div>
