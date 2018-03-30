@@ -23,8 +23,8 @@ class App extends Component {
     email: '',
     password: '',
     token: localStorage.getItem('token') || '',
-    networth: parseInt(localStorage.getItem('networth')) || 0,
-    totalReturns: (parseInt(localStorage.getItem('networth')) - 50000.00) || 0
+    networth: parseFloat(localStorage.getItem('networth')) || 0,
+    totalReturns: (parseFloat(localStorage.getItem('networth')) - 50000.00) || 0
   }
 
   backendURL = "http://localhost:8000"
@@ -84,8 +84,9 @@ class App extends Component {
         localStorage.setItem('networth', res.data.funds)
         let networth = localStorage.getItem('networth')
         let totalReturns = networth - 50000
+        console.log(totalReturns)
         localStorage.setItem('totalReturns', totalReturns)
-        this.setState({networth: res.data.funds, totalReturns: parseInt(localStorage.getItem('totalReturns'))})
+        this.setState({networth: res.data.funds, totalReturns: totalReturns})
         console.log(this.state.totalReturns)
       })
       // .then(() => {

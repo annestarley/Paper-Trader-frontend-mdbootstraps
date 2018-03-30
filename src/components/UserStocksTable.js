@@ -3,19 +3,52 @@ import EasyTable from 'react-easy-table';
 
 const UserStocksTable = () => {
 
+  // const tHead = [
+  //   {
+  //       title: <h3 id="user-table-header">Company</h3>,
+  //       assignTo: 'companyName',
+  //       id: 'companyName'
+  //   },
+  //   {
+  //       title: <h3 id="user-table-header">Exch</h3>,
+  //       assignTo: 'exchange',
+  //       id: 'exchange'
+  //   },
+  //   {
+  //       title: <h3 id="user-table-header">Ticker/Symbol</h3>,
+  //       assignTo: 'ticker',
+  //       id: 'ticker'
+  //   },
+  //   {
+  //       title: <h3 id="user-table-header">Amount</h3>,
+  //       assignTo: 'amount',
+  //       id: 'amount'
+  //   },
+  //   {
+  //       title: <h3 id="user-table-header">Value</h3>,
+  //       assignTo: 'value',
+  //       id: 'value'
+  //   },
+  //   {
+  //       title: <h3 id="user-table-header">Value At Purchase</h3>,
+  //       assignTo: 'valuePur',
+  //       id: 'valuePur'
+  //   }
+  // ];
+
   const tHead = [
     {
-        title: <h3 id="user-table-header">Company</h3>,
-        assignTo: 'companyName',
-        id: 'companyName'
+        title: <h3 id="user-table-header">Symbol</h3>,
+        assignTo: 'symbol',
+        id: 'symbol'
     },
     {
-        title: <h3 id="user-table-header">Exch</h3>,
+        title: <h3 id="user-table-header">Tradetime</h3>,
         assignTo: 'exchange',
         id: 'exchange'
     },
     {
-        title: <h3 id="user-table-header">Ticker/Symbol</h3>,
+        title: <h3 id="user-table-header">Value</h3>,
         assignTo: 'ticker',
         id: 'ticker'
     },
@@ -40,12 +73,12 @@ const UserStocksTable = () => {
 
   return (
     <div className="row justify-content-center">
-      <div className = "col-12" id="user-table">
+      <table className = "col-12" id="user-table">
         <EasyTable
           tHead={tHead}
           data={data}
         />
-      </div>
+      </table>
     </div>
   )
 }

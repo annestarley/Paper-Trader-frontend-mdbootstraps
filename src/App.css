@@ -176,8 +176,9 @@
 }
 
 #user-table {
+  width: 100%;
+  margin-left: 40%;
   margin-bottom: 15px;
-  margin-left: 42%;
   align-items: center;
   width: 100%;
 }
@@ -232,4 +233,10 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@media only screen and (min-width: 600px;) {
+  #user-table {
+    margin-left: 20%;
+  }
 }
