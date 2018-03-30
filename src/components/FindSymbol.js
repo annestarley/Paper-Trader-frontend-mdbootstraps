@@ -16,7 +16,12 @@ class FindSymbol extends React.Component {
 
   checkForCompanyReturn = (companies) => {
     if (companies.length) {
-      return <p>Top results for your search. Are any of these the company you are looking for?</p>
+      return (
+        <div>
+          <p>Top results for your search. Are any of these the company you are looking for?</p>
+          <Table setCompanySymbol={this.props.setCompanySymbol} listCompanies={companies} />
+        </div>
+      )
     } else {
       return <p>No companies found with that name.</p>
     }
@@ -46,7 +51,7 @@ class FindSymbol extends React.Component {
     return (
       <div id="find-symbol">
         {this.checkForCompanyReturn(companies)}
-        <Table setCompanySymbol={this.props.setCompanySymbol} listCompanies={companies} />
+        {/* <Table setCompanySymbol={this.props.setCompanySymbol} listCompanies={companies} /> */}
       </div>
     )
   }
