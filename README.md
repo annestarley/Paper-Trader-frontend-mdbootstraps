@@ -1,3 +1,3 @@
-#Paper Trader
-A free virtual stock trading platform!
+# Paper Trader  
+## A free virtual stock trading platform!
 
