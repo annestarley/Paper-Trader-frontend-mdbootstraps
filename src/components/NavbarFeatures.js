@@ -15,6 +15,7 @@ import {
 import {BrowserRouter as Router} from 'react-router-dom';
 import LoginModal from './LoginModal'
 import SignUpModal from './SignUpModal'
+import LogoutModal from './LogoutModal'
 
 class NavbarFeatures extends React.Component {
   constructor(props) {
@@ -40,10 +41,6 @@ class NavbarFeatures extends React.Component {
     });
   }
 
-  logOut = () => {
-    localStorage.removeItem('token')
-  }
-
   render() {
     return (<Router>
       <Navbar color="stylish-color" dark="dark" expand="md" scrolling="scrolling">
@@ -67,7 +64,7 @@ class NavbarFeatures extends React.Component {
             <form className="form-inline">
               <NavItem>
                 <div>
-                  <span id="navbar-logout"><a onClick={this.logOut}>Logout</a></span>
+                  <span id="navbar-logout"><LogoutModal /></span>
                 </div>
               </NavItem>
             </form>

@@ -19,11 +19,11 @@ import LineChart from './components/charts/LineChart'
 class App extends Component {
   state = {
     companies: [],
-    username: '',
+    username: localStorage.getItem('username') || '',
     email: '',
     password: '',
     token: localStorage.getItem('token') || '',
-    networth: 12,
+    networth: 0,
     totalReturns: 0
   }
 
@@ -33,6 +33,7 @@ class App extends Component {
   signUpUser = (event, username, email, password) => {
     event.preventDefault()
 
+    localStorage.setItem('username', username)
     this.setState({
       username,
       email,
@@ -51,6 +52,10 @@ class App extends Component {
     logInUser = (event, username, password) => {
       event.preventDefault()
 
+      localStorage.setItem('username', username)
+      this.setState({
+        username: localStorage.getItem('username')
+      })
       // axios.post(`${this.backendURL}/login`, {username, password})
       axios({
         method: 'post',
@@ -62,6 +67,7 @@ class App extends Component {
       })
         .then(res => {
           let token = res.headers.auth.split(' ')[1]
+          localStorage.setItem('token', token)
           this.setState({
             token: token
           })
@@ -89,9 +95,12 @@ class App extends Component {
     }
   }
 
+
+
   render() {
     console.log(this.state.username, 'USERNAME!!!')
     console.log('TOKEN!!!!!', this.state.token);
+    console.log('NETWORTH!!!!', this.state.networth)
     return (
       <div className="App">
         <NavbarFeatures signUpUser={this.signUpUser} logInUser={this.logInUser}/>

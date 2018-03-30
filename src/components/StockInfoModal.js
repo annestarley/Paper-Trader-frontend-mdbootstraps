@@ -9,7 +9,8 @@ class StockInfoModal extends React.Component {
     super(props);
     this.state = {
       modal: false,
-      price: ''
+      price: '',
+      amount: 0
     };
 
     this.toggle = this.toggle.bind(this);
@@ -39,6 +40,47 @@ class StockInfoModal extends React.Component {
       })
   }
 
+  getAmount = (e) => {
+    console.log(e.target.value);
+    let amount = e.target.value
+    this.setState({
+      amount: amount
+    })
+    console.log('state amount', this.state.amount)
+  }
+
+  backendURL = 'http://localhost:8000'
+
+  buyStocks = () => {
+    console.log('freaking buy some stocks!!!!!!!');
+
+    let price = this.state.price
+
+    axios.post(`${this.backendURL}/${this.props.symbol}/trade`, {amount: this.state.amount, price: -price})
+     .then(res => {
+       console.log('here')
+       console.log('buyStocks',res);
+     })
+     .catch(error => {
+       console.log('there');
+       console.log(error);
+     })
+  }
+
+  sellStocks = () => {
+    console.log('freaking buy some stocks!!!!!!!');
+
+    axios.post(`${this.backendURL}/${this.props.symbol}/trade`, {amount: this.state.amount, price: this.state.price})
+     .then(res => {
+       console.log('here')
+       console.log('buyStocks',res);
+     })
+     .catch(error => {
+       console.log('there');
+       console.log(error);
+     })
+  }
+
   render() {
 
     console.log(this.props.symbol)
@@ -51,13 +93,13 @@ class StockInfoModal extends React.Component {
             <p>Current Price: ${this.state.price}</p>
             <p>Amount Owned: owned</p>
             <p>Ready to trade?</p>
-            <Input class="form-control" label="Enter amount you wish to trade."/>
+            <Input class="form-control" label="Enter amount you wish to trade." onChange={this.getAmount}/>
             <div className="row">
               <div className="class-md-6">
-                <button type="button" class="btn btn-success btn-rounded" id="buy-sell">Buy</button>
+                <button type="button" class="btn btn-success btn-rounded" id="buy-sell" onClick={this.buyStocks}>Buy</button>
               </div>
               <div className="class-md-6">
-                <button type="button" class="btn btn-success btn-rounded" id="buy-sell">Sell</button>
+                <button type="button" class="btn btn-success btn-rounded" id="buy-sell" onClick={this.sellStocks}>Sell</button>
               </div>
             </div>
           </ModalBody>
