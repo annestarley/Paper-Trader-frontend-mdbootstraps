@@ -1,7 +1,6 @@
 import React from 'react'
 import {Input} from 'mdbreact'
 import SymbolCollapse from './Collapse'
-import StockInfo from './StockInfo'
 import StockInfoModal from './StockInfoModal'
 import axios from 'axios'
 
@@ -35,16 +34,6 @@ class Searchbar extends React.Component {
     this.setState({
       stockInfo: true
     })
-  }
-
-  renderStockInfo = () => {
-    if(this.state.stockInfo)
-    {
-      return (<StockInfo />)
-    }
-    else{
-      return ''
-    }
   }
 
   render(){

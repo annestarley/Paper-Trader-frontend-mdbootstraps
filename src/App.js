@@ -24,7 +24,7 @@ class App extends Component {
     password: '',
     token: localStorage.getItem('token') || '',
     networth: parseInt(localStorage.getItem('networth')) || 0,
-    totalReturns: 0
+    totalReturns: (parseInt(localStorage.getItem('networth')) - 50000) || 0
   }
 
   backendURL = "http://localhost:8000"
@@ -82,9 +82,23 @@ class App extends Component {
       .then(res => {
         console.log(res)
         localStorage.setItem('networth', res.data.funds)
-        this.setState({networth: res.data.funds})
+        let networth = localStorage.getItem('networth')
+        let totalReturns = networth - 50000
+        localStorage.setItem('totalReturns', totalReturns)
+        this.setState({networth: res.data.funds, totalReturns: parseInt(localStorage.getItem('totalReturns'))})
+        console.log(this.state.totalReturns)
       })
+      // .then(() => {
+      //   this.updateTotalReturns()
+      // })
+      // .catch(error => {
+      //   console.log(error);
+      // })
   }
+  //
+  // updateTotalReturns = () => {
+  //   this.setState({totalReturns: this.state.networth - 50000})
+  // }
 
   renderUserStocksOnLogin = () => {
     console.log('renderUserStocksOnLogin')
@@ -102,9 +116,6 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state.username, 'USERNAME!!!')
-    console.log('TOKEN!!!!!', this.state.token);
-    console.log('NETWORTH!!!!', this.state.networth)
     return (
       <div className="App">
         <NavbarFeatures signUpUser={this.signUpUser} logInUser={this.logInUser}/>
@@ -114,7 +125,7 @@ class App extends Component {
             <Searchbar updateFunds={this.updateFunds}/>
           </div>
           <div className="col-md-4">
-            <InfoTab username={this.state.username} networth={this.state.networth} totalReturn={this.state.totalReturns}/>
+            <InfoTab username={this.state.username} networth={this.state.networth} totalReturns={this.state.totalReturns}/>
           </div>
         </div>
         {this.renderUserStocksOnLogin()}

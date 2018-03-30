@@ -46,33 +46,24 @@ class StockInfoModal extends React.Component {
     this.setState({
       amount: amount
     })
-    console.log('state amount', this.state.amount)
   }
 
   backendURL = 'http://localhost:8000'
 
   buyStocks = () => {
-    console.log('freaking buy some stocks!!!!!!!');
-
     let price = this.state.price
-
-console.log(`${this.backendURL}/${this.props.symbol}/trade`);
 
     axios.post(`${this.backendURL}/${this.props.symbol}/trade`, {amount: this.state.amount, price: price})
      .then(res => {
-       console.log('here')
-       console.log('buyStocks',res);
+       console.log(res);
        this.props.updateFunds()
      })
      .catch(error => {
-       console.log('there');
        console.log(error);
      })
   }
 
   sellStocks = () => {
-    console.log('freaking buy some stocks!!!!!!!');
-
     axios.post(`${this.backendURL}/${this.props.symbol}/trade`, {amount: -this.state.amount, price: this.state.price})
      .then(res => {
        console.log(res);
@@ -85,8 +76,6 @@ console.log(`${this.backendURL}/${this.props.symbol}/trade`);
   }
 
   render() {
-
-    console.log(this.props.symbol)
     return (
       <div>
         <Button class="btn btn-success" onClick={this.toggle}>Get Stock Information</Button>
