@@ -21,8 +21,10 @@ class App extends Component {
     companies: [],
     username: '',
     email: '',
-    password: ''
-
+    password: '',
+    token: '',
+    networth: 50000,
+    totalReturns: 0
   }
 
   backendURL = "http://localhost:8000"
@@ -40,6 +42,7 @@ class App extends Component {
       })
     }
 
+
   logInUser = (event, username, password) => {
     event.preventDefault()
     console.log('clicked')
@@ -55,13 +58,18 @@ class App extends Component {
       }
     })
       .then(res => {
-        console.log(res)
+        this.setState({
+          token: res.headers.auth
+        })
+        axios.get(`${this.backendURL}/funds`,'' , { headers: this.state.token })
+          .then(res => {
+            console.log('response', res);
+          })
       })
       .catch(error => {
         console.log(error);
       })
   }
-
 
   render() {
     return (
@@ -73,7 +81,7 @@ class App extends Component {
             <Searchbar />
           </div>
           <div className="col-md-4">
-            <InfoTab />
+            <InfoTab networth={this.state.networth} totalReturn={this.state.totalReturns}/>
           </div>
         </div>
         <div className="row justify-content-center">

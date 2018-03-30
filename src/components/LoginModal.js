@@ -23,7 +23,6 @@ class LoginModal extends React.Component {
 
   updateUsername = (e) => {
     let username = e.target.value
-    console.log(username)
     this.setState ({
       username: username
     })
@@ -31,7 +30,6 @@ class LoginModal extends React.Component {
 
   updatePassword = (e) => {
     let password = e.target.value
-    console.log(password)
     this.setState ({
       password: password
     })
