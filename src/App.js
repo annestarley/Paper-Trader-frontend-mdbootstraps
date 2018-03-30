@@ -19,11 +19,11 @@ import LineChart from './components/charts/LineChart'
 class App extends Component {
   state = {
     companies: [],
-    username: localStorage.getItem('username') || '',
+    username: localStorage.getItem('username') || 'User',
     email: '',
     password: '',
     token: localStorage.getItem('token') || '',
-    networth: 0,
+    networth: parseInt(localStorage.getItem('networth')) || 0,
     totalReturns: 0
   }
 
@@ -56,7 +56,6 @@ class App extends Component {
       this.setState({
         username: localStorage.getItem('username')
       })
-      // axios.post(`${this.backendURL}/login`, {username, password})
       axios({
         method: 'post',
         data: {username, password},
@@ -71,16 +70,21 @@ class App extends Component {
           this.setState({
             token: token
           })
-          axios.get(`${this.backendURL}/funds`)
-            .then(res => {
-              console.log(res)
-              this.setState({networth: res.data.funds})
-            })
+          this.updateFunds()
         })
         .catch(error => {
           console.log(error);
         })
     }
+
+  updateFunds =() => {
+    axios.get(`${this.backendURL}/funds`)
+      .then(res => {
+        console.log(res)
+        localStorage.setItem('networth', res.data.funds)
+        this.setState({networth: res.data.funds})
+      })
+  }
 
   renderUserStocksOnLogin = () => {
     console.log('renderUserStocksOnLogin')
@@ -107,7 +111,7 @@ class App extends Component {
         <Header />
         <div className="row">
           <div className="col-md-8">
-            <Searchbar />
+            <Searchbar updateFunds={this.updateFunds}/>
           </div>
           <div className="col-md-4">
             <InfoTab username={this.state.username} networth={this.state.networth} totalReturn={this.state.totalReturns}/>

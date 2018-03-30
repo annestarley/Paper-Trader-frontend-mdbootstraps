@@ -56,10 +56,13 @@ class StockInfoModal extends React.Component {
 
     let price = this.state.price
 
-    axios.post(`${this.backendURL}/${this.props.symbol}/trade`, {amount: this.state.amount, price: -price})
+console.log(`${this.backendURL}/${this.props.symbol}/trade`);
+
+    axios.post(`${this.backendURL}/${this.props.symbol}/trade`, {amount: this.state.amount, price: price})
      .then(res => {
        console.log('here')
        console.log('buyStocks',res);
+       this.props.updateFunds()
      })
      .catch(error => {
        console.log('there');
@@ -70,10 +73,10 @@ class StockInfoModal extends React.Component {
   sellStocks = () => {
     console.log('freaking buy some stocks!!!!!!!');
 
-    axios.post(`${this.backendURL}/${this.props.symbol}/trade`, {amount: this.state.amount, price: this.state.price})
+    axios.post(`${this.backendURL}/${this.props.symbol}/trade`, {amount: -this.state.amount, price: this.state.price})
      .then(res => {
-       console.log('here')
-       console.log('buyStocks',res);
+       console.log(res);
+       this.props.updateFunds()
      })
      .catch(error => {
        console.log('there');

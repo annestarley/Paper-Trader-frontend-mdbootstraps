@@ -60,7 +60,7 @@ class Searchbar extends React.Component {
         </div>
         <div className="row">
           <div className="col-md-12">
-            <StockInfoModal symbol={this.state.symbol}/>
+            <StockInfoModal symbol={this.state.symbol} updateFunds={this.props.updateFunds}/>
           </div>
         </div>
         {/* <div className="row">
