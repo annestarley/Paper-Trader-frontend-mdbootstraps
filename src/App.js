@@ -86,6 +86,7 @@ class App extends Component {
     }
 
   updateFunds =() => {
+    this.getTrades()
     axios.get(`${this.backendURL}/funds`)
       .then(res => {
         console.log(res)

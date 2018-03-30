@@ -62,7 +62,7 @@ class StockInfoModal extends React.Component {
        console.log(error);
      })
 
-     alert('Done!')
+     alert(`Done! You bought ${this.state.amount} ${this.props.symbol} stock(s).`)
   }
 
   sellStocks = () => {
@@ -76,7 +76,7 @@ class StockInfoModal extends React.Component {
        console.log(error);
      })
 
-     alert('Done!')
+     alert(`Done! You sold ${this.state.amount} ${this.props.symbol} stock(s).`)
   }
 
   render() {
