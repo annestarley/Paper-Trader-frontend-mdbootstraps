@@ -23,7 +23,7 @@ class App extends Component {
     email: '',
     password: '',
     token: '',
-    networth: 50000,
+    networth: 12,
     totalReturns: 0
   }
 
@@ -33,6 +33,11 @@ class App extends Component {
   signUpUser = (event, username, email, password) => {
     event.preventDefault()
 
+    this.setState({
+      username,
+      email,
+      password
+    })
     axios.post(`${this.backendURL}/newUser`, { username: username, password: password, email: email })
       .then(res => {
         console.log(res)
@@ -58,10 +63,12 @@ class App extends Component {
       }
     })
       .then(res => {
+        let token = res.headers.auth.split(' ')[1]
         this.setState({
-          token: res.headers.auth
+          token: token
         })
-        axios.get(`${this.backendURL}/funds`,'' , { headers: this.state.token })
+        console.log(this.state.token)
+        axios.get(`${this.backendURL}/funds`,'' , { headers: {token: this.state.token} })
           .then(res => {
             console.log('response', res);
           })
@@ -71,7 +78,21 @@ class App extends Component {
       })
   }
 
+  renderUserStocksOnLogin = () => {
+    console.log('renderUserStocksOnLogin')
+    if (this.state.token !== '') {
+      return (
+        <div className="row justify-content-center">
+          <div className="col-md-12">
+            <UserStocks />
+          </div>
+        </div>
+      )
+    }
+  }
+
   render() {
+    console.log(this.state.username, 'USERNAME!!!')
     return (
       <div className="App">
         <NavbarFeatures signUpUser={this.signUpUser} logInUser={this.logInUser}/>
@@ -81,14 +102,15 @@ class App extends Component {
             <Searchbar />
           </div>
           <div className="col-md-4">
-            <InfoTab networth={this.state.networth} totalReturn={this.state.totalReturns}/>
+            <InfoTab username={this.state.username} networth={this.state.networth} totalReturn={this.state.totalReturns}/>
           </div>
         </div>
-        <div className="row justify-content-center">
+        {this.renderUserStocksOnLogin()}
+        {/* <div className="row justify-content-center">
           <div className="col-md-12">
             <UserStocks />
           </div>
-        </div>
+        </div> */}
         {/* <div className="row">
           <div className="col-md-12">
             <Graphs />
