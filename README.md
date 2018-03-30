@@ -18,4 +18,9 @@ Then logout!
   
   
 ### Technologies Used:
-
+* React
+* JavaScript
+* CSS
+* NODE
+* PSQL
+* knex
