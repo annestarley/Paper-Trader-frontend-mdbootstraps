@@ -13,8 +13,8 @@ If you don't know the stock symbol you can use our own built in search. Type in 
 Then logout! 
 
 ### APIs Used:  
-* Yahoo stock   
-* New Yor stock   
+* Yahoo Finance Symbol Suggest  
+* IEX Trading - New York Stock Exchange  
   
   
 ### Technologies Used:
