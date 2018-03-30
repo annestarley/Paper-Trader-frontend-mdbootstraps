@@ -22,7 +22,7 @@ class App extends Component {
     username: '',
     email: '',
     password: '',
-    token: '',
+    token: localStorage.getItem('token') || '',
     networth: 12,
     totalReturns: 0
   }
@@ -48,35 +48,33 @@ class App extends Component {
     }
 
 
-  logInUser = (event, username, password) => {
-    event.preventDefault()
-    console.log('clicked')
-    console.log(username, password)
+    logInUser = (event, username, password) => {
+      event.preventDefault()
 
-    // axios.post(`${this.backendURL}/login`, {username, password})
-    axios({
-      method: 'post',
-      data: {username, password},
-      url: `${this.backendURL}/login`,
-      headers: {
-        'Acess-Control-Expose-Headers': 'Auth'
-      }
-    })
-      .then(res => {
-        let token = res.headers.auth.split(' ')[1]
-        this.setState({
-          token: token
-        })
-        console.log(this.state.token)
-        axios.get(`${this.backendURL}/funds`,'' , { headers: {token: this.state.token} })
-          .then(res => {
-            console.log('response', res);
+      // axios.post(`${this.backendURL}/login`, {username, password})
+      axios({
+        method: 'post',
+        data: {username, password},
+        url: `${this.backendURL}/login`,
+        headers: {
+          'Acess-Control-Expose-Headers': 'Auth'
+        }
+      })
+        .then(res => {
+          let token = res.headers.auth.split(' ')[1]
+          this.setState({
+            token: token
           })
-      })
-      .catch(error => {
-        console.log(error);
-      })
-  }
+          axios.get(`${this.backendURL}/funds`)
+            .then(res => {
+              console.log(res)
+              this.setState({networth: res.data.funds})
+            })
+        })
+        .catch(error => {
+          console.log(error);
+        })
+    }
 
   renderUserStocksOnLogin = () => {
     console.log('renderUserStocksOnLogin')
@@ -93,6 +91,7 @@ class App extends Component {
 
   render() {
     console.log(this.state.username, 'USERNAME!!!')
+    console.log('TOKEN!!!!!', this.state.token);
     return (
       <div className="App">
         <NavbarFeatures signUpUser={this.signUpUser} logInUser={this.logInUser}/>

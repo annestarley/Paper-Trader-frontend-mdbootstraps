@@ -62,6 +62,15 @@
   display: inline-block;
 }
 
+#navbar-logout {
+  display: inline-block;
+  color: white;
+}
+
+#navbar-logout:hover {
+  font-size: 1.1em;
+}
+
 #or {
   color: silver;
   padding: 5px;

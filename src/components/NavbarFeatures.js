@@ -40,6 +40,10 @@ class NavbarFeatures extends React.Component {
     });
   }
 
+  logOut = () => {
+    localStorage.removeItem('token')
+  }
+
   render() {
     return (<Router>
       <Navbar color="stylish-color" dark="dark" expand="md" scrolling="scrolling">
@@ -57,6 +61,13 @@ class NavbarFeatures extends React.Component {
                   <span id="navbar-login"><LoginModal logInUser={this.props.logInUser}/></span>
                   <span id="or">or</span>
                   <span id="navbar-login"><SignUpModal signUpUser={this.props.signUpUser}/></span>
+                </div>
+              </NavItem>
+            </form>
+            <form className="form-inline">
+              <NavItem>
+                <div>
+                  <span id="navbar-logout"><a onClick={this.logOut}>Logout</a></span>
                 </div>
               </NavItem>
             </form>
