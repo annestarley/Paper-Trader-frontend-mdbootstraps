@@ -17,15 +17,23 @@ import LineChart from './components/charts/LineChart'
 // import 'react-easy-table/sharp-ocean.css'
 
 class App extends Component {
-  state = {
-    companies: [],
-    username: localStorage.getItem('username') || 'User',
-    email: '',
-    password: '',
-    token: localStorage.getItem('token') || '',
-    networth: parseFloat(localStorage.getItem('networth')) || 0,
-    totalReturns: (parseFloat(localStorage.getItem('networth')) - 50000.00) || 0
+  constructor()
+  {
+    super();
+
+    this.state={
+        companies: [],
+        username: localStorage.getItem('username') || 'User',
+        email: '',
+        password: '',
+        token: localStorage.getItem('token') || '',
+        networth: parseFloat(localStorage.getItem('networth')) || 0,
+        totalReturns: (parseFloat(localStorage.getItem('networth')) - 50000.00) || 0,
+        trades:[]
+      }
+      this.getTrades()
   }
+
 
   backendURL = "http://localhost:8000"
   stockAPI = "https://api.iextrading.com/1.0"
@@ -107,14 +115,26 @@ class App extends Component {
       return (
         <div className="row justify-content-center">
           <div className="col-md-12">
-            <UserStocks />
+            <UserStocks trades={this.state.trades}/>
           </div>
         </div>
       )
     }
   }
 
-
+  getTrades = () => {
+    let results = []
+    axios.get(`http://localhost:8000/trades`)
+      .then(result => {
+        console.log('HERRRRRRRRRREEEEEE!!!!!!!!!!');
+        console.log(result);
+        this.setState({trades:result.data})
+        let buySell
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
 
   render() {
     return (

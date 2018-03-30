@@ -1,7 +1,9 @@
 import React from 'react'
 import EasyTable from 'react-easy-table';
+import axios from 'axios'
 
-const UserStocksTable = () => {
+const UserStocksTable = (props) => {
+
 
   // const tHead = [
   //   {
@@ -52,42 +54,63 @@ const UserStocksTable = () => {
         assignTo: 'amount',
         id: 'amount'
     }
-    // ,{
-    //     title: <h3 id="user-table-header">TradeTime</h3>,
-    //     assignTo: 'tradetime',
-    //     id: 'tradetime'
-    // }
+    ,
+    {
+        title: <h3 id="user-table-header">Buy/Sell</h3>,
+        assignTo: 'buySell',
+        id: 'buySell'
+    }
   ];
 
-  const data = [
-    {
-      id: 1, symbol: <p id="user-table-data">symbol</p>,
-      value: <p id="user-table-data">value</p>,
-      amount: <p id="user-table-data">amount</p>,
+  // const data = [
+  //   {
+  //     id: 1, symbol: <p id="user-table-data">symbol</p>,
+  //     value: <p id="user-table-data">value</p>,
+  //     amount: <p id="user-table-data">amount</p>,
+  //     buySell: <p id="user-table-data">buy</p>,
+  //     // tradetime: <p id="user-table-data">tradetime</p>
+  //   }
+  // ]
+
+  console.log(props.trades.data);
+  let tradeData = props.trades
+  let dataStuff =[]
+  let tradeAmount
+  let buySell
+  tradeData.map((trade) => {
+    if (trade.amount < 0) {
+      tradeAmount = -trade.amount
+      buySell = 'sell'
+    } else {
+      tradeAmount = trade.amount
+      buySell = 'buy'
+    }
+    let obj = {
+      id: 1, symbol: <p id="user-table-data">{trade.symbol}</p>,
+      value: <p id="user-table-data">{trade.value}</p>,
+      amount: <p id="user-table-data">{tradeAmount}</p>,
+      buySell: <p id="user-table-data">{buySell}</p>,
       // tradetime: <p id="user-table-data">tradetime</p>
     }
-  ]
+    dataStuff.push(obj)
+  })
 
-  // const findData = (companies) => {
-  //   let results = []
-  //   companies.map((company, i) => {
-  //     results.push(
-  //       {
-  //         companyName: <p id="table-data">{company.name}</p>,
-  //         exchange: <p id="table-data">{company.exch}</p>,
-  //         ticker: <p id="table-data"><a onClick={() => {props.setCompanySymbol(company.symbol)}} id="table-ticker">{company.symbol}</a></p>, id: i+1})
-  //   })
-  //   return results
-  // }
-
-
+  // let dataStuff = [
+  //   {
+  //     id: 1, symbol: <p id="user-table-data">symbol</p>,
+  //     value: <p id="user-table-data">value</p>,
+  //     amount: <p id="user-table-data">amount</p>,
+  //     // buySell: <p id="user-table-data">buy</p>,
+  //     // tradetime: <p id="user-table-data">tradetime</p>
+  //   }
+  // ]
 
   return (
     <div className="row justify-content-center">
       <table className = "col-12" id="user-table">
         <EasyTable
           tHead={tHead}
-          data={data}
+          data={dataStuff}
         />
       </table>
     </div>

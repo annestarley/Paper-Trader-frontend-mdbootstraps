@@ -1,11 +1,11 @@
 import React from 'react'
 import UserStocksTable from './UserStocksTable'
 
-const UserStocks = () => {
+const UserStocks = (props) => {
   return (
     <div class="user-container">
       <h1>Your Trades</h1>
-      <UserStocksTable />
+      <UserStocksTable trades={props.trades}/>
     </div>
   )
 }
