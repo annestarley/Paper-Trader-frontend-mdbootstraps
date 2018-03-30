@@ -24,7 +24,7 @@ class App extends Component {
     password: '',
     token: localStorage.getItem('token') || '',
     networth: parseInt(localStorage.getItem('networth')) || 0,
-    totalReturns: (parseInt(localStorage.getItem('networth')) - 50000) || 0
+    totalReturns: (parseInt(localStorage.getItem('networth')) - 50000.00) || 0
   }
 
   backendURL = "http://localhost:8000"

@@ -41,9 +41,9 @@ class LoginModal extends React.Component {
             <form id="log-out" onSubmit={(event) => {
               this.toggle()
             }}>
-                <p className="h5 text-center mb-4">You are now logged out!</p>
+                <p className="h5 text-center mb-4">You sure you want to log out?</p>
                 <div className="text-center">
-                    <Button type="submit" class="btn btn-success" onClick={this.logOut}>Okay!</Button>
+                    <Button type="submit" class="btn btn-success" onClick={this.logOut}>Yes, log out!</Button>
                 </div>
             </form>
 
