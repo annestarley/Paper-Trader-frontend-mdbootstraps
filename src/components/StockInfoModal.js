@@ -61,6 +61,8 @@ class StockInfoModal extends React.Component {
      .catch(error => {
        console.log(error);
      })
+
+     alert('Done!')
   }
 
   sellStocks = () => {
@@ -73,6 +75,8 @@ class StockInfoModal extends React.Component {
        console.log('there');
        console.log(error);
      })
+
+     alert('Done!')
   }
 
   render() {

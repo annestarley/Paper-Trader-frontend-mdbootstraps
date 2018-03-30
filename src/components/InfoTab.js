@@ -2,9 +2,6 @@ import React from 'react'
 import {View} from 'mdbreact'
 
 const infoTab = (props) => {
-  console.log(props.totalReturns)
-
-
   let totalReturns
   let totalReturnString
   if (props.totalReturns === 0) totalReturnString = '$0.00'
@@ -17,8 +14,6 @@ const infoTab = (props) => {
     totalReturnString = `$${totalReturns}`
   }
 
-  console.log(totalReturns)
-  console.log(totalReturnString);
   return (
     <View zoom>
       <div className="container">
