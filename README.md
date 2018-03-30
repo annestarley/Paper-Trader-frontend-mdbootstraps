@@ -7,6 +7,11 @@ View a history of your stocks trades with paper trader.
 Type in a stock/ticker symbol and view the info module on the stock's current price. There you can type in an amount and buy or sell that number of stocks. Your info tab and stock trades table will immediately update to reflect your changes.  
 If you don't know the stock symbol you can use our own built in search. Type in a company name and see the 10 closest matches to that company. Click on the ticker/symbol you want and it will populate the look up company symbol. You can then view and buy or trade that stock.  
 Then logout! 
+
+### APIs Used:  
+* Yahoo stock   
+* New Yor stock   
+  
   
 ### Technologies Used:
 
