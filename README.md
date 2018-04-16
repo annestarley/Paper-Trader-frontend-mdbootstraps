@@ -23,4 +23,6 @@ Then logout!
 * CSS
 * NODE
 * PSQL
-* knex
+* knex  
+  
+### Paper Trader backend URL: https://github.com/annestarley/Paper-Trader-backend
