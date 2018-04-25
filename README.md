@@ -1,5 +1,5 @@
 # Paper Trader  
-## A free virtual stock trading platform! 
+## A free virtual stock trading platform! (full-stack app)
   
 ### How it works:
 Sign up for a Paper Trader account, start out with $50,000 virtual dollars and see how you'd do in the world of stock trades. Once you login the info tab will immediately populate with your fund and returns information.  
